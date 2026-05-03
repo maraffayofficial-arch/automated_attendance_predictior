@@ -13,7 +13,13 @@ app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024  # 50 MB max upload
 
 # CORS configuration for production
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
-CORS(app, origins=[FRONTEND_URL, "http://localhost:5173", "http://localhost:5175"], supports_credentials=True)
+allowed_origins = list(filter(None, [
+    FRONTEND_URL,
+    "http://localhost:5173",
+    "http://localhost:5175",
+    "https://automated-attendance-predictior.vercel.app"
+]))
+CORS(app, origins=allowed_origins, supports_credentials=True, allow_headers=["Content-Type", "Authorization"], methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 jwt = JWTManager(app)
 
 client = MongoClient(MONGO_URI)
