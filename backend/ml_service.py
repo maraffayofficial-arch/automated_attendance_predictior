@@ -9,6 +9,14 @@ from datetime import datetime, timedelta
 import joblib
 import os
 import sys
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # Add attendance_predictor to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'attendance_predictor'))
@@ -41,23 +49,35 @@ class MLService:
         """Load trained models once at startup"""
         models = {}
 
-        xgboost_path = os.path.join(models_dir, "xgboost_model.pkl")
-        models["xgboost"] = joblib.load(xgboost_path)
-        print(f"  [OK] XGBoost loaded from {xgboost_path}")
+        try:
+            xgboost_path = os.path.join(models_dir, "xgboost_model.pkl")
+            models["xgboost"] = joblib.load(xgboost_path)
+            logger.info(f"XGBoost loaded from {xgboost_path}")
+        except Exception as e:
+            logger.error(f"Failed to load XGBoost model: {e}")
+            raise
 
-        iso_path = os.path.join(models_dir, "isolation_forest_model.pkl")
-        iso_data = joblib.load(iso_path)
-        models["isolation_forest"] = iso_data["model"]
-        models["iso_scaler"] = iso_data["scaler"]
-        print(f"  [OK] Isolation Forest loaded from {iso_path}")
+        try:
+            iso_path = os.path.join(models_dir, "isolation_forest_model.pkl")
+            iso_data = joblib.load(iso_path)
+            models["isolation_forest"] = iso_data["model"]
+            models["iso_scaler"] = iso_data["scaler"]
+            logger.info(f"Isolation Forest loaded from {iso_path}")
+        except Exception as e:
+            logger.error(f"Failed to load Isolation Forest model: {e}")
+            raise
 
         prophet_path = os.path.join(models_dir, "prophet_model.pkl")
         if os.path.exists(prophet_path):
-            models["prophet"] = joblib.load(prophet_path)
-            print(f"  [OK] Prophet loaded from {prophet_path}")
+            try:
+                models["prophet"] = joblib.load(prophet_path)
+                logger.info(f"Prophet loaded from {prophet_path}")
+            except Exception as e:
+                logger.warning(f"Failed to load Prophet model: {e}")
+                models["prophet"] = None
         else:
             models["prophet"] = None
-            print(f"  [WARN] Prophet not found - group trends will be unavailable")
+            logger.warning("Prophet not found - group trends will be unavailable")
 
         return models
 
@@ -66,38 +86,53 @@ class MLService:
         Analyze a single person and update their prediction in database.
         This is FAST - only processes one person's data.
         """
-        # Get person's attendance records
-        records = list(self.db.attendance_records.find(
-            {"person_id": person_id}
-        ).sort("date", 1))
-
-        if len(records) < 7:
-            # Not enough data for meaningful prediction
-            return self._store_insufficient_data(person_id, len(records))
-
-        # Convert to DataFrame
-        df = pd.DataFrame(records)
-
-        # Engineer features for this person only
         try:
-            featured_df = engineer_features(df)
+            # Get person's attendance records
+            records = list(self.db.attendance_records.find(
+                {"person_id": person_id}
+            ).sort("date", 1))
+
+            if len(records) < 7:
+                # Not enough data for meaningful prediction
+                logger.info(f"Insufficient data for {person_id}: {len(records)} records")
+                return self._store_insufficient_data(person_id, len(records))
+
+            # Convert to DataFrame
+            df = pd.DataFrame(records)
+
+            # Engineer features for this person only
+            try:
+                featured_df = engineer_features(df)
+            except Exception as e:
+                logger.error(f"Error engineering features for {person_id}: {e}")
+                return self._store_error(person_id, str(e))
+
+            # Get group trend (cached, updated once per day)
+            prophet_trend = self._get_group_trend()
+
+            # Run all 3 models
+            try:
+                xgboost_risk = self._get_xgboost_risk(featured_df, person_id)
+                anomaly_status = self._get_anomaly_status(featured_df, person_id)
+                exam_check = self._check_exam_absence(featured_df, person_id)
+
+                # Generate alert
+                alert = self._generate_person_alert(
+                    person_id, prophet_trend, xgboost_risk, anomaly_status, exam_check
+                )
+
+                # Store in database
+                self._store_prediction(alert)
+                logger.info(f"Successfully analyzed {person_id}: {alert['alert_level']}")
+                return alert
+
+            except Exception as e:
+                logger.error(f"Error running models for {person_id}: {e}")
+                return self._store_error(person_id, str(e))
+
         except Exception as e:
-            print(f"Error engineering features for {person_id}: {e}")
+            logger.error(f"Unexpected error analyzing {person_id}: {e}")
             return self._store_error(person_id, str(e))
-
-        # Get group trend (cached, updated once per day)
-        prophet_trend = self._get_group_trend()
-
-        # Run all 3 models
-        try:
-            xgboost_risk = self._get_xgboost_risk(featured_df, person_id)
-            anomaly_status = self._get_anomaly_status(featured_df, person_id)
-            exam_check = self._check_exam_absence(featured_df, person_id)
-
-            # Generate alert
-            alert = self._generate_person_alert(
-                person_id, prophet_trend, xgboost_risk, anomaly_status, exam_check
-            )
 
             # Store in database
             self._store_prediction(alert)

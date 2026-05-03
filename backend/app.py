@@ -1,14 +1,25 @@
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from pymongo import MongoClient, ASCENDING, DESCENDING
+from datetime import timedelta
 from config import MONGO_URI, JWT_SECRET_KEY, FLASK_PORT
 import os
 
 app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = JWT_SECRET_KEY
-app.config["JWT_ACCESS_TOKEN_EXPIRES"] = False  # tokens don't expire for dev
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=24)  # Tokens expire after 24 hours
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024  # 50 MB max upload
+
+# Rate limiting
+limiter = Limiter(
+    app=app,
+    key_func=get_remote_address,
+    default_limits=["200 per day", "50 per hour"],
+    storage_uri="memory://"
+)
 
 # CORS configuration for production
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
@@ -53,9 +64,34 @@ app.register_blueprint(attendance_bp, url_prefix="/api/attendance")
 app.register_blueprint(alerts_bp, url_prefix="/api/alerts")
 app.register_blueprint(predictions_bp, url_prefix="/api/predictions")
 
+# Apply rate limiting to specific endpoints
+limiter.limit("5 per minute")(auth_bp.view_functions['login'])
+limiter.limit("10 per hour")(auth_bp.view_functions['register'])
+
 @app.route("/api/health")
 def health():
     return {"status": "ok", "db": db.name}
+
+@app.route("/api/health/ml")
+def ml_health():
+    """Check if ML models are loaded and working"""
+    try:
+        from ml_service import ml_service
+        if ml_service and ml_service.models:
+            models_status = {
+                "xgboost": "loaded" if ml_service.models.get("xgboost") else "missing",
+                "isolation_forest": "loaded" if ml_service.models.get("isolation_forest") else "missing",
+                "prophet": "loaded" if ml_service.models.get("prophet") else "missing"
+            }
+            all_loaded = all(status == "loaded" for status in models_status.values())
+            return {
+                "status": "ok" if all_loaded else "partial",
+                "models": models_status,
+                "message": "All models loaded" if all_loaded else "Some models missing"
+            }
+        return {"status": "error", "message": "ML service not initialized"}, 500
+    except Exception as e:
+        return {"status": "error", "message": str(e)}, 500
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", FLASK_PORT))
