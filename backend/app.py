@@ -1,8 +1,6 @@
 from flask import Flask, request
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 from pymongo import MongoClient, ASCENDING, DESCENDING
 from datetime import timedelta
 from config import MONGO_URI, JWT_SECRET_KEY, FLASK_PORT
@@ -10,16 +8,8 @@ import os
 
 app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = JWT_SECRET_KEY
-app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=24)  # Tokens expire after 24 hours
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=24)
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024  # 50 MB max upload
-
-# Rate limiting
-limiter = Limiter(
-    app=app,
-    key_func=get_remote_address,
-    default_limits=["200 per day", "50 per hour"],
-    storage_uri="memory://"
-)
 
 # CORS configuration for production
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")

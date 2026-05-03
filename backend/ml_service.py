@@ -19,7 +19,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Add attendance_predictor to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'attendance_predictor'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'attendance_predictor'))
 
 from prophet_model import (
     engineer_features,
@@ -37,7 +37,6 @@ class MLService:
         if models_dir is None:
             models_dir = os.path.join(
                 os.path.dirname(__file__),
-                '..',
                 'attendance_predictor',
                 'models'
             )
