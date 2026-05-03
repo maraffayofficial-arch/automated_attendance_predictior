@@ -18,10 +18,9 @@ pandas==2.2.3
 numpy==2.2.3
 joblib==1.4.2
 
-# Prophet disabled - requires C++ compiler, causes Railway build timeout
-# prophet==1.1.6
-# cmdstanpy==1.3.0
-# holidays==0.95
+prophet==1.1.6
+cmdstanpy==1.3.0
+holidays==0.95
 
 # Production server
 gunicorn==23.0.0
