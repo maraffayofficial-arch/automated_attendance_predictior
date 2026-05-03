@@ -15,12 +15,12 @@ bcrypt==5.0.0
 # ML Libraries - PINNED VERSIONS FOR COMPATIBILITY
 scikit-learn==1.6.1
 xgboost==2.1.3
-prophet==1.1.6
 pandas==2.2.3
 numpy==2.2.3
 joblib==1.4.2
 
-# Prophet dependencies
+# Prophet (optional - comment out if build fails)
+prophet==1.1.6
 cmdstanpy==1.3.0
 holidays==0.95
 
