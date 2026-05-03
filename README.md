@@ -203,13 +203,6 @@ This project was developed as part of KHSIP-2026-MG-0002.
 
 ## 📄 License
 
-All rights reserved.
-
-## 👨‍💻 Author
-
-Developed with ❤️ using Claude Code
-
----
 
 **Live Demo:** [Your Vercel URL]  
 **API Docs:** [Your Railway URL]/api/health
