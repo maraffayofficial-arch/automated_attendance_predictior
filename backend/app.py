@@ -65,12 +65,12 @@ app.register_blueprint(alerts_bp, url_prefix="/api/alerts")
 app.register_blueprint(predictions_bp, url_prefix="/api/predictions")
 
 # Apply rate limiting to specific endpoints (after blueprint registration)
+# Wrapped in try-except to handle blueprint registration timing
 try:
     limiter.limit("5 per minute")(auth_bp.view_functions['login'])
     limiter.limit("10 per hour")(auth_bp.view_functions['register'])
 except KeyError:
-    # Endpoints not found, skip rate limiting
-    pass
+    pass  # Endpoints not found, skip rate limiting
 
 @app.route("/api/health")
 def health():
