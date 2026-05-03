@@ -5,6 +5,7 @@ from pymongo import MongoClient, ASCENDING, DESCENDING
 from datetime import timedelta
 from config import MONGO_URI, JWT_SECRET_KEY, FLASK_PORT
 import os
+import re
 
 app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = JWT_SECRET_KEY
@@ -13,12 +14,12 @@ app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024  # 50 MB max upload
 
 # CORS configuration for production
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
-allowed_origins = list(filter(None, [
-    FRONTEND_URL,
+allowed_origins = [
+    re.compile(r"https://.*\.vercel\.app"),
     "http://localhost:5173",
     "http://localhost:5175",
-    "https://automated-attendance-predictior.vercel.app"
-]))
+    FRONTEND_URL
+]
 CORS(app, origins=allowed_origins, supports_credentials=True, allow_headers=["Content-Type", "Authorization"], methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 jwt = JWTManager(app)
 
