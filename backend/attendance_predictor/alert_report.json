@@ -1,0 +1,1736 @@
+{
+  "generated_at": "2026-04-30T10:41:29.963545",
+  "group_trend": {
+    "trend": "IMPROVING",
+    "current_rate": 0.6714,
+    "forecast_rate": 0.7023
+  },
+  "anomaly_types_supported": [
+    "SUDDEN_DROP",
+    "EXAM_ABSENCE",
+    "PERFECT_THEN_ABSENT",
+    "ERRATIC_PATTERN",
+    "PROLONGED_ABSENCE"
+  ],
+  "summary": {
+    "total_persons": 24,
+    "critical": 8,
+    "high": 4,
+    "medium": 2,
+    "low": 10
+  },
+  "alerts": [
+    {
+      "person_id": "PAK-03",
+      "alert_level": "CRITICAL",
+      "combined_risk_score": 1.0,
+      "anomaly_types": [
+        "PROLONGED_ABSENCE",
+        "EXAM_ABSENCE"
+      ],
+      "reasons": [
+        "Extended continuous absence streak",
+        "Missed 10/10 exam days (100% absence rate during exams)",
+        "Predicted absent 7/7 days next week",
+        "High absence probability: 93%"
+      ],
+      "recommended_actions": [
+        "Immediate outreach \u2014 person may need support",
+        "Academic counseling \u2014 missing exams may indicate serious issues",
+        "Proactive outreach before absences accumulate"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.9283,
+          "predicted_absences_7d": 7,
+          "avg_risk_7d": 0.9448
+        },
+        "isolation_forest": {
+          "is_anomaly": true,
+          "anomaly_type": "PROLONGED_ABSENCE"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "True",
+          "exam_absence_rate": 1.0,
+          "exam_days_missed": 10,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.9542,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.9463,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.9433,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.9518,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.9378,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.9453,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.9347,
+          "predicted_status": "ABSENT"
+        }
+      ]
+    },
+    {
+      "person_id": "PAK-07",
+      "alert_level": "CRITICAL",
+      "combined_risk_score": 1.0,
+      "anomaly_types": [
+        "PROLONGED_ABSENCE",
+        "EXAM_ABSENCE"
+      ],
+      "reasons": [
+        "Extended continuous absence streak",
+        "Missed 9/10 exam days (90% absence rate during exams)",
+        "Predicted absent 7/7 days next week",
+        "High absence probability: 98%"
+      ],
+      "recommended_actions": [
+        "Immediate outreach \u2014 person may need support",
+        "Academic counseling \u2014 missing exams may indicate serious issues",
+        "Proactive outreach before absences accumulate"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.9847,
+          "predicted_absences_7d": 7,
+          "avg_risk_7d": 0.9765
+        },
+        "isolation_forest": {
+          "is_anomaly": true,
+          "anomaly_type": "PROLONGED_ABSENCE"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "True",
+          "exam_absence_rate": 0.9,
+          "exam_days_missed": 9,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.9773,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.9775,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.9744,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.9717,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.9787,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.9778,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.9783,
+          "predicted_status": "ABSENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-TEST-02",
+      "alert_level": "CRITICAL",
+      "combined_risk_score": 0.9602,
+      "anomaly_types": [
+        "IRREGULAR_PATTERN"
+      ],
+      "reasons": [
+        "Unusual attendance behavior detected",
+        "Predicted absent 7/7 days next week",
+        "High absence probability: 81%"
+      ],
+      "recommended_actions": [
+        "Add to watch list for closer monitoring",
+        "Proactive outreach before absences accumulate"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.8102,
+          "predicted_absences_7d": 7,
+          "avg_risk_7d": 0.9773
+        },
+        "isolation_forest": {
+          "is_anomaly": true,
+          "anomaly_type": "IRREGULAR_PATTERN"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": false,
+          "exam_absence_rate": 0,
+          "exam_days_missed": 0
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-05-01",
+          "absence_probability": 0.9273,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-04",
+          "absence_probability": 0.9683,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-05",
+          "absence_probability": 0.9805,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-06",
+          "absence_probability": 0.9896,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-07",
+          "absence_probability": 0.9917,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-08",
+          "absence_probability": 0.9919,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-11",
+          "absence_probability": 0.9918,
+          "predicted_status": "ABSENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-010",
+      "alert_level": "CRITICAL",
+      "combined_risk_score": 0.9221,
+      "anomaly_types": [
+        "IRREGULAR_PATTERN",
+        "EXAM_ABSENCE"
+      ],
+      "reasons": [
+        "Unusual attendance behavior detected",
+        "Missed 10/10 exam days (100% absence rate during exams)",
+        "Predicted absent 7/7 days next week",
+        "High absence probability: 67%"
+      ],
+      "recommended_actions": [
+        "Add to watch list for closer monitoring",
+        "Academic counseling \u2014 missing exams may indicate serious issues",
+        "Proactive outreach before absences accumulate"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.6721,
+          "predicted_absences_7d": 7,
+          "avg_risk_7d": 0.9165
+        },
+        "isolation_forest": {
+          "is_anomaly": true,
+          "anomaly_type": "IRREGULAR_PATTERN"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "True",
+          "exam_absence_rate": 1.0,
+          "exam_days_missed": 10,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.8029,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.8827,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.9007,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.9303,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.949,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.9793,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.9704,
+          "predicted_status": "ABSENT"
+        }
+      ]
+    },
+    {
+      "person_id": "EMP-0001",
+      "alert_level": "CRITICAL",
+      "combined_risk_score": 0.9138,
+      "anomaly_types": [
+        "EXAM_ABSENCE"
+      ],
+      "reasons": [
+        "Missed 1/1 exam days (100% absence rate during exams)",
+        "Predicted absent 7/7 days next week",
+        "High absence probability: 81%"
+      ],
+      "recommended_actions": [
+        "Academic counseling \u2014 missing exams may indicate serious issues",
+        "Proactive outreach before absences accumulate"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.8138,
+          "predicted_absences_7d": 7,
+          "avg_risk_7d": 0.9779
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "True",
+          "exam_absence_rate": 1.0,
+          "exam_days_missed": 1,
+          "total_exam_days": 1
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-01-19",
+          "absence_probability": 0.9448,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-01-20",
+          "absence_probability": 0.9762,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-01-21",
+          "absence_probability": 0.9798,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-01-22",
+          "absence_probability": 0.9867,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-01-23",
+          "absence_probability": 0.9883,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-01-26",
+          "absence_probability": 0.9845,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-01-27",
+          "absence_probability": 0.9853,
+          "predicted_status": "ABSENT"
+        }
+      ]
+    },
+    {
+      "person_id": "EMP-TEST-01",
+      "alert_level": "CRITICAL",
+      "combined_risk_score": 0.7046,
+      "anomaly_types": [
+        "EXAM_ABSENCE"
+      ],
+      "reasons": [
+        "Missed 1/2 exam days (50% absence rate during exams)",
+        "Predicted absent 7/7 days next week",
+        "High absence probability: 60%"
+      ],
+      "recommended_actions": [
+        "Academic counseling \u2014 missing exams may indicate serious issues",
+        "Proactive outreach before absences accumulate"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.6046,
+          "predicted_absences_7d": 7,
+          "avg_risk_7d": 0.8505
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "True",
+          "exam_absence_rate": 0.5,
+          "exam_days_missed": 1,
+          "total_exam_days": 2
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-05-01",
+          "absence_probability": 0.7916,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-04",
+          "absence_probability": 0.6323,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-05",
+          "absence_probability": 0.8435,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-06",
+          "absence_probability": 0.8285,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-07",
+          "absence_probability": 0.9305,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-08",
+          "absence_probability": 0.9661,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-11",
+          "absence_probability": 0.9609,
+          "predicted_status": "ABSENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-TEST-01",
+      "alert_level": "CRITICAL",
+      "combined_risk_score": 0.4753,
+      "anomaly_types": [],
+      "reasons": [
+        "Predicted absent 7/7 days next week",
+        "Moderate absence probability: 48%"
+      ],
+      "recommended_actions": [
+        "Proactive outreach before absences accumulate"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.4753,
+          "predicted_absences_7d": 7,
+          "avg_risk_7d": 0.8814
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": false,
+          "exam_absence_rate": 0,
+          "exam_days_missed": 0
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-05-01",
+          "absence_probability": 0.6089,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-04",
+          "absence_probability": 0.8221,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-05",
+          "absence_probability": 0.8656,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-06",
+          "absence_probability": 0.9685,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-07",
+          "absence_probability": 0.9722,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-08",
+          "absence_probability": 0.9746,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-05-11",
+          "absence_probability": 0.9577,
+          "predicted_status": "ABSENT"
+        }
+      ]
+    },
+    {
+      "person_id": "PAK-05",
+      "alert_level": "CRITICAL",
+      "combined_risk_score": 0.4738,
+      "anomaly_types": [
+        "EXAM_ABSENCE"
+      ],
+      "reasons": [
+        "Missed 3/10 exam days (30% absence rate during exams)",
+        "Predicted absent 7/7 days next week",
+        "Moderate absence probability: 37%"
+      ],
+      "recommended_actions": [
+        "Academic counseling \u2014 missing exams may indicate serious issues",
+        "Proactive outreach before absences accumulate"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.3738,
+          "predicted_absences_7d": 7,
+          "avg_risk_7d": 0.7984
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "True",
+          "exam_absence_rate": 0.3,
+          "exam_days_missed": 3,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.5244,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.686,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.839,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.8574,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.8899,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.8804,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.9118,
+          "predicted_status": "ABSENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-007",
+      "alert_level": "HIGH",
+      "combined_risk_score": 0.6512,
+      "anomaly_types": [
+        "EXAM_ABSENCE"
+      ],
+      "reasons": [
+        "Missed 4/10 exam days (40% absence rate during exams)",
+        "Predicted absent 5/7 days next week",
+        "Moderate absence probability: 55%"
+      ],
+      "recommended_actions": [
+        "Academic counseling \u2014 missing exams may indicate serious issues",
+        "Proactive outreach before absences accumulate"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.5512,
+          "predicted_absences_7d": 5,
+          "avg_risk_7d": 0.5683
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "True",
+          "exam_absence_rate": 0.4,
+          "exam_days_missed": 4,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.3773,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.6057,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.3938,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.609,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.5782,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.7293,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.6849,
+          "predicted_status": "ABSENT"
+        }
+      ]
+    },
+    {
+      "person_id": "PAK-09",
+      "alert_level": "HIGH",
+      "combined_risk_score": 0.5085,
+      "anomaly_types": [
+        "EXAM_ABSENCE"
+      ],
+      "reasons": [
+        "Missed 5/10 exam days (50% absence rate during exams)",
+        "Moderate absence probability: 41%"
+      ],
+      "recommended_actions": [
+        "Academic counseling \u2014 missing exams may indicate serious issues"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.4085,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.322
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "True",
+          "exam_absence_rate": 0.5,
+          "exam_days_missed": 5,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.2544,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.3248,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.3171,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.3525,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.3182,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.3584,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.3288,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-004",
+      "alert_level": "HIGH",
+      "combined_risk_score": 0.501,
+      "anomaly_types": [
+        "EXAM_ABSENCE"
+      ],
+      "reasons": [
+        "Missed 10/10 exam days (100% absence rate during exams)",
+        "Moderate absence probability: 40%"
+      ],
+      "recommended_actions": [
+        "Academic counseling \u2014 missing exams may indicate serious issues"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.401,
+          "predicted_absences_7d": 3,
+          "avg_risk_7d": 0.5517
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "True",
+          "exam_absence_rate": 1.0,
+          "exam_days_missed": 10,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.4021,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.7132,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.4415,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.4534,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.4934,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.7069,
+          "predicted_status": "ABSENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.6512,
+          "predicted_status": "ABSENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-002",
+      "alert_level": "HIGH",
+      "combined_risk_score": 0.346,
+      "anomaly_types": [
+        "EXAM_ABSENCE"
+      ],
+      "reasons": [
+        "Missed 3/10 exam days (30% absence rate during exams)"
+      ],
+      "recommended_actions": [
+        "Academic counseling \u2014 missing exams may indicate serious issues"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.246,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.2145
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "True",
+          "exam_absence_rate": 0.3,
+          "exam_days_missed": 3,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.1495,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.2217,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.2441,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.2931,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.1811,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.1766,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.2355,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-009",
+      "alert_level": "MEDIUM",
+      "combined_risk_score": 0.4618,
+      "anomaly_types": [],
+      "reasons": [
+        "Moderate absence probability: 46%"
+      ],
+      "recommended_actions": [
+        "Add to watch list"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.4618,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.3083
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.1,
+          "exam_days_missed": 1,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.3596,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.3739,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.2366,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.392,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.2551,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.2828,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.258,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "PAK-04",
+      "alert_level": "MEDIUM",
+      "combined_risk_score": 0.412,
+      "anomaly_types": [],
+      "reasons": [
+        "Moderate absence probability: 41%"
+      ],
+      "recommended_actions": [
+        "Add to watch list"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.412,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.2748
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.2,
+          "exam_days_missed": 2,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.2815,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.234,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.3039,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.355,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.263,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.2247,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.2615,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "PAK-02",
+      "alert_level": "LOW",
+      "combined_risk_score": 0.3161,
+      "anomaly_types": [],
+      "reasons": [
+        "Attendance pattern is healthy"
+      ],
+      "recommended_actions": [
+        "No action needed"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.3161,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.197
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.1,
+          "exam_days_missed": 1,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.1335,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.2194,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.2136,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.175,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.1692,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.2272,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.241,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-005",
+      "alert_level": "LOW",
+      "combined_risk_score": 0.2177,
+      "anomaly_types": [],
+      "reasons": [
+        "Attendance pattern is healthy"
+      ],
+      "recommended_actions": [
+        "No action needed"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.2177,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.2296
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.0,
+          "exam_days_missed": 0,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.1739,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.1487,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.3281,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.2955,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.2363,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.1794,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.2454,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "PAK-10",
+      "alert_level": "LOW",
+      "combined_risk_score": 0.2165,
+      "anomaly_types": [],
+      "reasons": [
+        "Attendance pattern is healthy"
+      ],
+      "recommended_actions": [
+        "No action needed"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.2165,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.2792
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.2,
+          "exam_days_missed": 2,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.2981,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.2712,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.2107,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.2931,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.295,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.2914,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.2947,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-006",
+      "alert_level": "LOW",
+      "combined_risk_score": 0.2123,
+      "anomaly_types": [],
+      "reasons": [
+        "Attendance pattern is healthy"
+      ],
+      "recommended_actions": [
+        "No action needed"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.2123,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.2114
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.2,
+          "exam_days_missed": 2,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.1588,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.1385,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.1582,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.2796,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.2512,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.2452,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.2481,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "PAK-08",
+      "alert_level": "LOW",
+      "combined_risk_score": 0.2082,
+      "anomaly_types": [],
+      "reasons": [
+        "Attendance pattern is healthy"
+      ],
+      "recommended_actions": [
+        "No action needed"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.2082,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.2516
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.2,
+          "exam_days_missed": 2,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.2683,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.2637,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.2485,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.2777,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.2725,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.2173,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.2133,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-008",
+      "alert_level": "LOW",
+      "combined_risk_score": 0.18,
+      "anomaly_types": [],
+      "reasons": [
+        "Attendance pattern is healthy"
+      ],
+      "recommended_actions": [
+        "No action needed"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.18,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.2143
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.1,
+          "exam_days_missed": 1,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.167,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.1727,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.1951,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.23,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.2258,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.2651,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.2444,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "PAK-06",
+      "alert_level": "LOW",
+      "combined_risk_score": 0.1743,
+      "anomaly_types": [],
+      "reasons": [
+        "Attendance pattern is healthy"
+      ],
+      "recommended_actions": [
+        "No action needed"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.1743,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.1507
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.1,
+          "exam_days_missed": 1,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.1481,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.1534,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.1486,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.1541,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.1493,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.1481,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.1534,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-001",
+      "alert_level": "LOW",
+      "combined_risk_score": 0.1717,
+      "anomaly_types": [],
+      "reasons": [
+        "Attendance pattern is healthy"
+      ],
+      "recommended_actions": [
+        "No action needed"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.1717,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.1605
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.1,
+          "exam_days_missed": 1,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.113,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.1414,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.1691,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.1764,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.1675,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.1824,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.1735,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "PAK-01",
+      "alert_level": "LOW",
+      "combined_risk_score": 0.1677,
+      "anomaly_types": [],
+      "reasons": [
+        "Attendance pattern is healthy"
+      ],
+      "recommended_actions": [
+        "No action needed"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.1677,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.1623
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.1,
+          "exam_days_missed": 1,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.1218,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.1217,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.2267,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.1711,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.1658,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.1618,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.1675,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "person_id": "STU-003",
+      "alert_level": "LOW",
+      "combined_risk_score": 0.1281,
+      "anomaly_types": [],
+      "reasons": [
+        "Attendance pattern is healthy"
+      ],
+      "recommended_actions": [
+        "No action needed"
+      ],
+      "model_details": {
+        "xgboost": {
+          "absence_probability": 0.1281,
+          "predicted_absences_7d": 0,
+          "avg_risk_7d": 0.1593
+        },
+        "isolation_forest": {
+          "is_anomaly": false,
+          "anomaly_type": "NORMAL"
+        },
+        "prophet": {
+          "group_trend": "IMPROVING"
+        },
+        "exam_check": {
+          "has_exam_absence": "False",
+          "exam_absence_rate": 0.0,
+          "exam_days_missed": 0,
+          "total_exam_days": 10
+        }
+      },
+      "daily_forecasts": [
+        {
+          "date": "2026-04-16",
+          "absence_probability": 0.113,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-17",
+          "absence_probability": 0.2134,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-20",
+          "absence_probability": 0.1316,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-21",
+          "absence_probability": 0.1623,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-22",
+          "absence_probability": 0.1645,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-23",
+          "absence_probability": 0.1561,
+          "predicted_status": "PRESENT"
+        },
+        {
+          "date": "2026-04-24",
+          "absence_probability": 0.1745,
+          "predicted_status": "PRESENT"
+        }
+      ]
+    }
+  ]
+}

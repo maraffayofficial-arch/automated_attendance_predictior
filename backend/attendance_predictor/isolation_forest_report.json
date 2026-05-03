@@ -1,0 +1,54 @@
+{
+  "model": "Isolation Forest v2",
+  "generated_at": "2026-04-11T14:28:54.606467",
+  "anomaly_types_supported": [
+    "SUDDEN_DROP",
+    "PERFECT_THEN_ABSENT",
+    "ERRATIC_PATTERN",
+    "PROLONGED_ABSENCE"
+  ],
+  "total_persons": 50,
+  "anomalies_detected": 8,
+  "anomaly_breakdown": [
+    {
+      "person_id": "EMP-0004",
+      "anomaly_score": 1.0,
+      "anomaly_type": "SUDDEN_DROP"
+    },
+    {
+      "person_id": "EMP-0046",
+      "anomaly_score": 0.9871,
+      "anomaly_type": "PROLONGED_ABSENCE"
+    },
+    {
+      "person_id": "EMP-0026",
+      "anomaly_score": 0.9241,
+      "anomaly_type": "PROLONGED_ABSENCE"
+    },
+    {
+      "person_id": "EMP-0039",
+      "anomaly_score": 0.7895,
+      "anomaly_type": "PROLONGED_ABSENCE"
+    },
+    {
+      "person_id": "EMP-0003",
+      "anomaly_score": 0.7612,
+      "anomaly_type": "IRREGULAR_PATTERN"
+    },
+    {
+      "person_id": "EMP-0010",
+      "anomaly_score": 0.7446,
+      "anomaly_type": "PROLONGED_ABSENCE"
+    },
+    {
+      "person_id": "EMP-0013",
+      "anomaly_score": 0.7399,
+      "anomaly_type": "ERRATIC_PATTERN"
+    },
+    {
+      "person_id": "EMP-0019",
+      "anomaly_score": 0.6873,
+      "anomaly_type": "ERRATIC_PATTERN"
+    }
+  ]
+}

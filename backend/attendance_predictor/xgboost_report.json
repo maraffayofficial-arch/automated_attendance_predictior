@@ -1,0 +1,87 @@
+{
+  "model": "XGBoost",
+  "generated_at": "2026-04-11T14:28:53.333023",
+  "cv_results": {
+    "accuracy": 0.7682,
+    "precision": 0.6105,
+    "recall": 0.5907,
+    "f1": 0.5998,
+    "roc_auc": 0.7793
+  },
+  "holdout_results": {
+    "holdout_days": 30,
+    "test_samples": 1100,
+    "accuracy": 0.8427,
+    "precision": 0.7508,
+    "recall": 0.7121,
+    "f1_score": 0.7309,
+    "roc_auc": 0.8897
+  },
+  "feature_importance": [
+    {
+      "rank": 1,
+      "feature": "consecutive_absences",
+      "importance_pct": 32.970001220703125
+    },
+    {
+      "rank": 2,
+      "feature": "prev_7d_attendance",
+      "importance_pct": 28.149999618530273
+    },
+    {
+      "rank": 3,
+      "feature": "rolling_avg_7d",
+      "importance_pct": 17.059999465942383
+    },
+    {
+      "rank": 4,
+      "feature": "prev_30d_attendance",
+      "importance_pct": 3.7799999713897705
+    },
+    {
+      "rank": 5,
+      "feature": "rolling_avg_30d",
+      "importance_pct": 3.5299999713897705
+    },
+    {
+      "rank": 6,
+      "feature": "z_score_deviation",
+      "importance_pct": 2.3399999141693115
+    },
+    {
+      "rank": 7,
+      "feature": "is_exam_period",
+      "importance_pct": 2.049999952316284
+    },
+    {
+      "rank": 8,
+      "feature": "attendance_trend",
+      "importance_pct": 1.7699999809265137
+    },
+    {
+      "rank": 9,
+      "feature": "month",
+      "importance_pct": 1.75
+    },
+    {
+      "rank": 10,
+      "feature": "short_long_avg_gap",
+      "importance_pct": 1.7300000190734863
+    },
+    {
+      "rank": 11,
+      "feature": "day_of_week",
+      "importance_pct": 1.659999966621399
+    },
+    {
+      "rank": 12,
+      "feature": "workload_indicator",
+      "importance_pct": 1.649999976158142
+    },
+    {
+      "rank": 13,
+      "feature": "attendance_variance_14d",
+      "importance_pct": 1.5800000429153442
+    }
+  ]
+}
